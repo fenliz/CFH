@@ -6,6 +6,7 @@
 
 namespace CFH
 {
+	// Calculates the time that a specific block takes to execute.
 	class ProfilerBlock
 	{
 	public:

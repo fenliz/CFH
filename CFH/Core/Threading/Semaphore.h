@@ -6,6 +6,8 @@
 
 namespace CFH
 {
+	// A "lock" which restrics multiple uses at the same time
+	// and forces others to wait until it is unlocked.
 	class Semaphore
 	{
 	public:

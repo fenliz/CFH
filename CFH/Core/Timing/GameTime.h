@@ -7,6 +7,8 @@ namespace CFH
 	class EngineContext;
 	class BeginFrameMessage;
 
+	// Central time object that tracks the time of a frame
+	// and is used to manipulating time in the engine.
 	class CFH_API GameTime
 	{
 	public:

@@ -11,6 +11,7 @@ namespace CFH
 		static const char* GetTimestamp();
 	};
 
+	// A low resolution timer (milliseconds).
 	class CFH_API Timer
 	{
 	public:
@@ -24,6 +25,7 @@ namespace CFH
 		unsigned int start_;
 	};
 
+	// A high resolution timer (microseconds) for when more granularity is needed.
 	class CFH_API HighResolutionTimer
 	{
 	public:

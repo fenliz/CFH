@@ -1,29 +1,42 @@
 #pragma once
-#include "MessageBus.h"
+#include "MessageTypes.h"
 #include "MessageTypeContainer.h"
-
-#include <list>
-#include <future>
 
 namespace CFH
 {
+	// Convenience macros for sending and subscribe/unsubscribing to messages.
+#define SEND_DEFAULT_MESSAGE(messageType) \
+	MessageBus::GetInstance()->Send<messageType>(messageType());
+#define SEND_MESSAGE(messageType, message) \
+	MessageBus::GetInstance()->Send<messageType>(message)
+
+#define POST_DEFAULT_MESSAGE(messageType) \
+	MessageBus::GetInstance()->Post<messageType>(messageType());
+#define POST_MESSAGE(messageType, message) \
+	MessageBus::GetInstance()->Post<messageType>(message);
+
+#define SUBSCRIBE_TO_MESSAGE(messageType, subscriber, function) \
+	MessageBus::GetInstance()->Subscribe<messageType>(subscriber, function)
+
+#define UNSUBSCRIBE_FROM_MESSAGE(messageType, subscriber) \
+	MessageBus::GetInstance()->Unsubscribe<messageType>(subscriber);
+
+#define UNSUBSCRIBE_FROM_MESSAGES(subscriber) \
+	MessageBus::GetInstance()->Unsubscribe(subscriber);
+
+
+	// Used as a hub for messages. All messages are transmitted through one instance of this class.
 	class MessageBus
 	{
 	public:
-		MessageBus()
-		{
-		}
+		MessageBus();
 		MessageBus(const MessageBus&) = delete;
-		~MessageBus()
-		{
-			mutex_.LockExclusive();
-			for (auto& it : messageContainers_)
-				delete it.second;
-			mutex_.UnlockExclusive();
-		}
+		~MessageBus();
+
+		static MessageBus* GetInstance();
 
 		template<typename MESSAGETYPE>
-		void Subscribe(MessageSubscriber subscriber, MessageSubscribeFunction<MESSAGETYPE> function)
+		void Subscribe(MessageSubscriber subscriber, MessageSubscribeFunction<MESSAGETYPE> function) 
 		{
 			MessageTypeContainer<MESSAGETYPE>* container;
 			MessageTypeId typeId = Message::GetTypeId<MESSAGETYPE>();
@@ -31,7 +44,7 @@ namespace CFH
 			mutex_.LockExclusive();
 			auto it = messageContainers_.find(typeId);
 			if (it != messageContainers_.end())
-				container =	static_cast<MessageTypeContainer<MESSAGETYPE>*>(it->second);
+				container = static_cast<MessageTypeContainer<MESSAGETYPE>*>(it->second);
 			else
 			{
 				container = new MessageTypeContainer<MESSAGETYPE>();
@@ -41,16 +54,10 @@ namespace CFH
 			mutex_.UnlockExclusive();
 		}
 
-		void Unsubscribe(MessageSubscriber subscriber)
-		{
-			mutex_.LockExclusive();
-			for (auto& it : messageContainers_)
-				it.second->Unsubscribe(subscriber);
-			mutex_.UnlockExclusive();
-		}
+		void Unsubscribe(MessageSubscriber subscriber);
 
 		template<typename MESSAGETYPE>
-		void Unsubscribe(MessageSubscriber subscriber)
+		void Unsubscribe(MessageSubscriber subscriber) 
 		{
 			MessageTypeId typeId = Message::GetTypeId<MESSAGETYPE>();
 
@@ -69,7 +76,7 @@ namespace CFH
 		}
 
 		template<typename MESSAGETYPE>
-		void Send(const MESSAGETYPE& message)
+		void Send(const MESSAGETYPE& message) 
 		{
 			MessageTypeId typeId = Message::GetTypeId<MESSAGETYPE>();
 
@@ -85,13 +92,16 @@ namespace CFH
 		}
 
 		template<typename MESSAGETYPE>
-		void Post(const MESSAGETYPE& message)
+		void Post(const MESSAGETYPE& message) 
 		{
 			std::async(std::launch::async, Send<MESSAGETYPE>(message));
 		}
 
 	private:
+		static MessageBus* instance_;
+
 		std::map<MessageTypeId, MessageTypeContainerBase*> messageContainers_;
 		SharedMutex mutex_;
+
 	};
 }

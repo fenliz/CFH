@@ -2,6 +2,7 @@
 #include "Messaging\MessageBus.h"
 #include "Profiling\Profiler.h"
 #include "Threading\Thread.h"
+#include "Logging\Logger.h"
 
 namespace CFH
 {
@@ -9,16 +10,14 @@ namespace CFH
 	{
 		Thread::SetAsMainThread();
 
+		logger_ = new Logger();
 		messageBus_ = new MessageBus();
 		profiler_ = new Profiler(this);
 	}
 	EngineContext::~EngineContext()
 	{
+		delete logger_;
 		delete messageBus_;
-	}
-
-	MessageBus* EngineContext::GetMessageBus()
-	{
-		return messageBus_;
+		delete profiler_;
 	}
 }

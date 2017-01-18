@@ -7,8 +7,10 @@
 #endif
 
 #if _DEBUG
+#include <Windows.h>
 #define ASSERT(x) \
 	if (!x) DebugBreak()
 #else
+	if (!x) assert(x)
 #define ASSERT(x)
 #endif

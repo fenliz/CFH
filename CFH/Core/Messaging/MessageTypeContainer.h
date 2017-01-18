@@ -1,10 +1,12 @@
 #pragma once
-#include "Message.h"
+#include "MessageTypes.h"
 #include "..\Threading\SharedMutex.h"
+
 #include <map>
 
 namespace CFH
 {
+	// A container for subscribers of a specific message.
 	class MessageTypeContainerBase
 	{
 	public:

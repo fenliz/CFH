@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "Messaging\MessageBus.h"
 #include "EngineContext.h"
 #include "Timing\GameTime.h"
 #include "Logging\Logger.h"
@@ -7,9 +8,9 @@ namespace CFH
 {
 	Application::Application()
 	{
-		ENABLE_DEBUG_CONSOLE_LOGGING();
-
 		engineContext_ = new EngineContext();
+		ENABLE_CONSOLE_LOGGING(LoggingSeverity::Debug);
+
 		gameTime_ = new GameTime(engineContext_);
 	}
 	Application::~Application()
@@ -34,9 +35,9 @@ namespace CFH
 
 	void Application::Update()
 	{
-		engineContext_->GetMessageBus()->Send<BeginFrameMessage>(BeginFrameMessage());
+		SEND_DEFAULT_MESSAGE(BeginFrameMessage);
 
-		engineContext_->GetMessageBus()->Send<EndFrameMessage>(EndFrameMessage());
+		SEND_DEFAULT_MESSAGE(EndFrameMessage);
 	}
 
 	void Application::Render()

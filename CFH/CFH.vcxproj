@@ -147,7 +147,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application.cpp" />
-    <ClCompile Include="Core\Messaging\Message.cpp" />
+    <ClCompile Include="Core\Logging\Logger.cpp" />
+    <ClCompile Include="Core\Messaging\MessageTypes.cpp" />
+    <ClCompile Include="Core\Messaging\MessageBus.cpp" />
     <ClCompile Include="Core\Threading\Thread.cpp" />
     <ClCompile Include="Core\Timing\Timer.cpp" />
     <ClCompile Include="Core\Timing\GameTime.cpp" />
@@ -156,7 +158,9 @@
     <ClCompile Include="Core\Profiling\ProfilerBlock.cpp" />
     <ClInclude Include="Core\Application.h" />
     <ClInclude Include="CFH.h" />
-    <ClInclude Include="Core\Messaging\Message.h" />
+    <ClInclude Include="Core\Logging\Log.h" />
+    <ClInclude Include="Core\Logging\LogOutput.h" />
+    <ClInclude Include="Core\Messaging\MessageTypes.h" />
     <ClInclude Include="Core\Threading\Semaphore.h" />
     <ClInclude Include="Core\Threading\SharedMutex.h" />
     <ClInclude Include="Core\Threading\Thread.h" />

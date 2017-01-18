@@ -6,6 +6,7 @@ namespace CFH
 	class EngineContext;
 	class ProfilerBlock;
 
+	// A tool for measuring the time of specific blocks of code.
 	class Profiler
 	{
 	public:
@@ -14,20 +15,21 @@ namespace CFH
 
 		void BeginBlock(const char* name);
 		void EndBlock();
+
 		void BeginInterval();
 
 		const ProfilerBlock* GetCurrentBlock() const;
-		const ProfilerBlock* GetRootBlokc() const;
+		const ProfilerBlock* GetRootBlock() const;
 
-		Profiler* GetInstance()
-		{
-			return instance_;
-		}
+		Profiler* GetInstance() const;
+
+		float GetFrameTime();
 
 	private:
 		static Profiler* instance_;
 		ProfilerBlock* root_;
 		ProfilerBlock* current_;
+		unsigned int intervalFrames_;
 
 		void OnBeginFrame();
 		void OnEndFrame();
@@ -53,6 +55,7 @@ namespace CFH
 		Profiler* profiler_;
 	};
 
+	// Convenience macro for starting a local block with a specific name.
 #define PROFILE(name) \
 	AutoProfileBlock profile_&&name (Profiler::GetInstance(), #name)
 }

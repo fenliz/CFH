@@ -3,6 +3,9 @@
 
 namespace CFH
 {
+	// A "lock" which is most commonly used for
+	// scenarios where you'd want multiple readers
+	// but only one writer.
 	class SharedMutex
 	{
 	public:

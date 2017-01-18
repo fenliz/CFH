@@ -6,6 +6,8 @@ namespace CFH
 	class GameTime;
 	class EngineContext;
 
+	// Central application object, the entry point to starting
+	// an instance of the engine.
 	class CFH_API Application
 	{
 	public:

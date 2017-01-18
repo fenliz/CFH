@@ -1,4 +1,4 @@
-#include "Message.h"
+#include "MessageTypes.h"
 
 namespace CFH
 {

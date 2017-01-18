@@ -8,6 +8,7 @@ namespace CFH
 	{
 		class EngineContext;
 
+		// Used for creating a Window that the engine could draw to.
 		class CFH_API Window
 		{
 		public:
