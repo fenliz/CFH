@@ -1,5 +1,6 @@
 #pragma once
-#include "Core\Messages\MessageBus.h"
+#include "Messaging\MessageBus.h"
+#include "Profiling\Profiler.h"
 
 namespace CFH
 {
@@ -13,6 +14,7 @@ namespace CFH
 
 	private:
 		MessageBus* messageBus_;
+		Profiler* profiler_;
 	};
 }
 

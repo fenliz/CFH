@@ -1,7 +1,7 @@
 #include "Application.h"
-#include "Time\GameTime.h"
 #include "EngineContext.h"
-#include "Log\Logger.h"
+#include "Timing\GameTime.h"
+#include "Logging\Logger.h"
 
 namespace CFH
 {

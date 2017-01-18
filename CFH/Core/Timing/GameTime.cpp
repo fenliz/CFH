@@ -1,13 +1,13 @@
 #include "GameTime.h"
 #include "..\EngineContext.h"
-#include "..\Messages\Message.h"
+#include "..\Messaging\Message.h"
 
 namespace CFH
 {
 	GameTime::GameTime(EngineContext* context)
 	{
-		context->GetMessageBus()->Subscribe<EndFrameMessage>(this, [this](EndFrameMessage message) { OnEndFrame(); });
-		context->GetMessageBus()->Subscribe<BeginFrameMessage>(this, [this](BeginFrameMessage message) { OnBeginFrame(); });
+		context->GetMessageBus()->Subscribe<BeginFrameMessage>(this, 
+			[this](BeginFrameMessage message) { OnBeginFrame(); });
 	}
 	GameTime::~GameTime()
 	{

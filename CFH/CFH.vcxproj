@@ -147,22 +147,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application.cpp" />
-    <ClCompile Include="Core\Messages\Message.cpp" />
-    <ClCompile Include="Core\Time\Timer.cpp" />
-    <ClCompile Include="Core\Time\GameTime.cpp" />
+    <ClCompile Include="Core\Messaging\Message.cpp" />
+    <ClCompile Include="Core\Threading\Thread.cpp" />
+    <ClCompile Include="Core\Timing\Timer.cpp" />
+    <ClCompile Include="Core\Timing\GameTime.cpp" />
     <ClCompile Include="Core\EngineContext.cpp" />
+    <ClCompile Include="Core\Profiling\Profiler.cpp" />
+    <ClCompile Include="Core\Profiling\ProfilerBlock.cpp" />
     <ClInclude Include="Core\Application.h" />
     <ClInclude Include="CFH.h" />
-    <ClInclude Include="Core\Messages\Message.h" />
+    <ClInclude Include="Core\Messaging\Message.h" />
     <ClInclude Include="Core\Threading\Semaphore.h" />
     <ClInclude Include="Core\Threading\SharedMutex.h" />
+    <ClInclude Include="Core\Threading\Thread.h" />
     <ClInclude Include="Core\Window.h" />
-    <ClInclude Include="Core\Time\Timer.h" />
-    <ClInclude Include="Core\Time\GameTime.h" />
+    <ClInclude Include="Core\Timing\Timer.h" />
+    <ClInclude Include="Core\Timing\GameTime.h" />
     <ClInclude Include="Core\EngineContext.h" />
-    <ClInclude Include="Core\Messages\MessageTypeContainer.h" />
-    <ClInclude Include="Core\Messages\MessageBus.h" />
-    <ClInclude Include="Core\Log\Logger.h" />
+    <ClInclude Include="Core\Messaging\MessageTypeContainer.h" />
+    <ClInclude Include="Core\Messaging\MessageBus.h" />
+    <ClInclude Include="Core\Logging\Logger.h" />
+    <ClInclude Include="Core\Profiling\Profiler.h" />
+    <ClInclude Include="Core\Profiling\ProfilerBlock.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Window.cpp" />
