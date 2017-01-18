@@ -1,8 +1,8 @@
 #include "EngineContext.h"
-#include "Messaging\MessageBus.h"
-#include "Profiling\Profiler.h"
 #include "Threading\Thread.h"
 #include "Logging\Logger.h"
+#include "Messaging\MessageBus.h"
+#include "Profiling\Profiler.h"
 
 namespace CFH
 {

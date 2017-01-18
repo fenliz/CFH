@@ -1,8 +1,12 @@
 #pragma once
 #include "..\CFH.h"
+#include "Threading\SharedMutex.h"
+
+#include <atomic>
 
 namespace CFH
 {
+	class Window;
 	class GameTime;
 	class EngineContext;
 
@@ -14,10 +18,14 @@ namespace CFH
 		Application();
 		~Application();
 
-		void Run();
+		void Start();
+		void Stop();
+
+		bool IsRunning() const;
 
 	private:
-		bool isRunning_;
+		std::atomic<bool> isRunning_;
+		Window* window_;
 		GameTime* gameTime_;
 		EngineContext* engineContext_;
 
