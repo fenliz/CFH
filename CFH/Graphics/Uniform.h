@@ -1,10 +1,11 @@
 #pragma once
+#include "CFH.h"
 
 namespace CFH
 {
 	namespace Graphics
 	{
-		class Uniform
+		class CFH_API Uniform
 		{
 		public:
 			Uniform();

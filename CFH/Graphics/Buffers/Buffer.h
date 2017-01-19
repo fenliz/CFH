@@ -54,8 +54,8 @@ namespace CFH
 
 		public:
 			Buffer();
-			Buffer(Target target, Usage usage);
-			~Buffer();
+			Buffer(Target target, Usage usage = Usage::StaticDraw);
+			virtual ~Buffer();
 
 			Buffer(const Buffer&) = delete;
 			Buffer& operator=(const Buffer&) = delete;
@@ -63,7 +63,7 @@ namespace CFH
 			void Create();
 			void Destroy();
 
-			void Bind() const;
+			virtual void Bind() const;
 			void Bind(Target target);
 			void Unbind() const;
 
@@ -77,13 +77,13 @@ namespace CFH
 			void SetUsage(Usage usage);
 			Usage GetUsage() const;
 
-			void SetTarget(Target target);
+			virtual void SetTarget(Target target);
 			Target GetTarget() const;
 
 			int GetId() const;
 			bool IsCreated() const;
 
-		private:
+		protected:
 			unsigned int id_;
 			bool created_;
 			Target target_;

@@ -147,7 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\IO\File.cpp" />
-    <ClCompile Include="Graphics\Buffer.cpp" />
+    <ClCompile Include="Graphics\Buffers\Buffer.cpp" />
     <ClCompile Include="Core\Application.cpp" />
     <ClCompile Include="Core\Logging\Logger.cpp" />
     <ClCompile Include="Core\Messaging\MessageTypes.cpp" />
@@ -161,8 +161,10 @@
     <ClCompile Include="Graphics\Shader.cpp" />
     <ClCompile Include="Graphics\Program.cpp" />
     <ClCompile Include="Graphics\Uniform.cpp" />
+    <ClCompile Include="Graphics\Buffers\VertexBuffer.cpp" />
+    <ClCompile Include="Graphics\VertexAttribute.cpp" />
     <ClInclude Include="Core\IO\File.h" />
-    <ClInclude Include="Graphics\Buffer.h" />
+    <ClInclude Include="Graphics\Buffers\Buffer.h" />
     <ClInclude Include="Core\Application.h" />
     <ClInclude Include="CFH.h" />
     <ClInclude Include="Core\Exceptions.h" />
@@ -185,6 +187,8 @@
     <ClInclude Include="Graphics\Shader.h" />
     <ClInclude Include="Graphics\Program.h" />
     <ClInclude Include="Graphics\Uniform.h" />
+    <ClInclude Include="Graphics\Buffers\VertexBuffer.h" />
+    <ClInclude Include="Graphics\VertexAttribute.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Window.cpp" />

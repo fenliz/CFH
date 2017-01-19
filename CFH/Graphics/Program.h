@@ -10,7 +10,7 @@ namespace CFH
 {
 	namespace Graphics
 	{
-		class Program
+		class CFH_API Program
 		{
 		public:
 			Program();
