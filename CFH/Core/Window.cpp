@@ -1,7 +1,7 @@
 #include "Window.h"
+#include "Logging\Log.h"
 #include "EngineContext.h"
 #include "Messaging\Messages.h"
-#include "Logging\Log.h"
 
 #include <Windows.h>
 

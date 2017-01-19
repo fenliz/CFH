@@ -146,6 +146,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Core\IO\File.cpp" />
+    <ClCompile Include="Graphics\Buffer.cpp" />
     <ClCompile Include="Core\Application.cpp" />
     <ClCompile Include="Core\Logging\Logger.cpp" />
     <ClCompile Include="Core\Messaging\MessageTypes.cpp" />
@@ -156,6 +158,11 @@
     <ClCompile Include="Core\EngineContext.cpp" />
     <ClCompile Include="Core\Profiling\Profiler.cpp" />
     <ClCompile Include="Core\Profiling\ProfilerBlock.cpp" />
+    <ClCompile Include="Graphics\Shader.cpp" />
+    <ClCompile Include="Graphics\Program.cpp" />
+    <ClCompile Include="Graphics\Uniform.cpp" />
+    <ClInclude Include="Core\IO\File.h" />
+    <ClInclude Include="Graphics\Buffer.h" />
     <ClInclude Include="Core\Application.h" />
     <ClInclude Include="CFH.h" />
     <ClInclude Include="Core\Exceptions.h" />
@@ -175,6 +182,9 @@
     <ClInclude Include="Core\Logging\Logger.h" />
     <ClInclude Include="Core\Profiling\Profiler.h" />
     <ClInclude Include="Core\Profiling\ProfilerBlock.h" />
+    <ClInclude Include="Graphics\Shader.h" />
+    <ClInclude Include="Graphics\Program.h" />
+    <ClInclude Include="Graphics\Uniform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Window.cpp" />

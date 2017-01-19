@@ -1,7 +1,7 @@
 #pragma once
-#include "..\Threading\SharedMutex.h"
-#include "LogOutput.h"
 #include "Log.h"
+#include "LogOutput.h"
+#include "Core\Threading\SharedMutex.h"
 
 #include <map>
 #include <sstream>

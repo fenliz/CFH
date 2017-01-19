@@ -1,5 +1,4 @@
 #pragma once
-
 #include "MessageBus.h"
 
 namespace CFH

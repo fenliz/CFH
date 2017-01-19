@@ -1,7 +1,7 @@
 #include "Profiler.h"
 #include "ProfilerBlock.h"
-#include "..\Threading\Thread.h"
-#include "..\Messaging\Messages.h"
+#include "Core\Threading\Thread.h"
+#include "Core\Messaging\Messages.h"
 
 #include <string>
 

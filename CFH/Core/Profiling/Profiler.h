@@ -1,5 +1,5 @@
 #pragma once
-#include "..\Threading\SharedMutex.h"
+#include "Core\Threading\SharedMutex.h"
 
 namespace CFH
 {

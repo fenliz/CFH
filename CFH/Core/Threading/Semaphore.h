@@ -1,5 +1,5 @@
 #pragma once
-#include "..\..\CFH.h"
+#include "CFH.h"
 
 #include <mutex>
 #include <condition_variable>

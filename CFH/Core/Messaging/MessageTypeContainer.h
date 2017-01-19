@@ -1,6 +1,6 @@
 #pragma once
 #include "MessageTypes.h"
-#include "..\Threading\SharedMutex.h"
+#include "Core\Threading\SharedMutex.h"
 
 #include <map>
 

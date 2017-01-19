@@ -1,5 +1,5 @@
 #pragma once
-#include "..\Timing\Timer.h"
+#include "Core\Timing\Timer.h"
 
 #include <string>
 #include <vector>

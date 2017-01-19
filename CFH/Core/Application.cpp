@@ -1,9 +1,9 @@
 #include "Application.h"
-#include "Messaging\Messages.h"
-#include "EngineContext.h"
-#include "Timing\GameTime.h"
-#include "Logging\Logger.h"
 #include "Window.h"
+#include "EngineContext.h"
+#include "Logging\Logger.h"
+#include "Timing\GameTime.h"
+#include "Messaging\Messages.h"
 
 namespace CFH
 {

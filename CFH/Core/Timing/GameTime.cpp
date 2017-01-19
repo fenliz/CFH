@@ -1,6 +1,6 @@
 #include "GameTime.h"
-#include "..\EngineContext.h"
-#include "..\Messaging\Messages.h"
+#include "Core\EngineContext.h"
+#include "Core\Messaging\Messages.h"
 
 namespace CFH
 {

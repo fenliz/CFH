@@ -1,6 +1,5 @@
 #pragma once
 
-#include <string>
 #include <exception>
 
 namespace CFH
@@ -20,13 +19,21 @@ namespace CFH
 	public:
 		NotImplementedException() : Exception("Missing implementation!") {}
 		NotImplementedException(const char* message) : Exception(message) {};
-		NotImplementedException() = default;
+		~NotImplementedException() {};
 	};
 
 	class IndexOutOfRangeException final : public Exception
 	{
 		IndexOutOfRangeException() : Exception("Index was out of range!") {}
 		IndexOutOfRangeException(const char* message) : Exception(message) {};
-		IndexOutOfRangeException() = default;
+		~IndexOutOfRangeException() {};
+	};
+
+	class FileNotFoundException final : public Exception
+	{
+	public:
+		FileNotFoundException() : Exception("File not found!") {}
+		FileNotFoundException(const char* message) : Exception(message) {};
+		~FileNotFoundException() {};
 	};
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include "..\CFH.h"
+#include "CFH.h"
 
 #include <Windows.h>
 #include <atomic>
