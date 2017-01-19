@@ -36,7 +36,7 @@ namespace CFH
 		static MessageBus* GetInstance();
 
 		template<typename MESSAGETYPE>
-		void Subscribe(MessageSubscriber subscriber, MessageSubscribeFunction<MESSAGETYPE> function) 
+		void Subscribe(MessageSubscriber subscriber, MessageSubscribeFunction<MESSAGETYPE> function)
 		{
 			MessageTypeContainer<MESSAGETYPE>* container;
 			MessageTypeId typeId = Message::GetTypeId<MESSAGETYPE>();
@@ -57,7 +57,7 @@ namespace CFH
 		void Unsubscribe(MessageSubscriber subscriber);
 
 		template<typename MESSAGETYPE>
-		void Unsubscribe(MessageSubscriber subscriber) 
+		void Unsubscribe(MessageSubscriber subscriber)
 		{
 			MessageTypeId typeId = Message::GetTypeId<MESSAGETYPE>();
 
@@ -76,7 +76,7 @@ namespace CFH
 		}
 
 		template<typename MESSAGETYPE>
-		void Send(const MESSAGETYPE& message) 
+		void Send(const MESSAGETYPE& message)
 		{
 			MessageTypeId typeId = Message::GetTypeId<MESSAGETYPE>();
 
@@ -92,7 +92,7 @@ namespace CFH
 		}
 
 		template<typename MESSAGETYPE>
-		void Post(const MESSAGETYPE& message) 
+		void Post(const MESSAGETYPE& message)
 		{
 			std::async(std::launch::async, Send<MESSAGETYPE>(message));
 		}

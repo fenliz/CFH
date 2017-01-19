@@ -2,13 +2,16 @@
 #include "..\CFH.h"
 
 #include <Windows.h>
+#include <atomic>
 
 namespace CFH
 {
 	class EngineContext;
+	struct WindowResizeMessage;
+	struct WindowMoveMessage;
 
 	// Used for creating a Window that the engine could draw to.
-	class CFH_API Window
+	class Window
 	{
 	public:
 		Window(EngineContext* context);
@@ -40,11 +43,14 @@ namespace CFH
 		HINSTANCE hInstance_;
 
 		LPWSTR title_;
-		bool fullscreen_;
-		int x_, y_;
-		int width_, height_;
+		std::atomic<bool> fullscreen_;
+		std::atomic<int> x_, y_;
+		std::atomic<int> width_, height_;
 
 		bool InitializeWindow();
+
+		void OnWindowMove(const WindowMoveMessage& message);
+		void OnWindowResize(const WindowResizeMessage& message);
 	};
 
 }

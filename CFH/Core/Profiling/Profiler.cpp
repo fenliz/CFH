@@ -1,7 +1,7 @@
 #include "Profiler.h"
 #include "ProfilerBlock.h"
 #include "..\Threading\Thread.h"
-#include "..\Messaging\MessageBus.h"
+#include "..\Messaging\Messages.h"
 
 #include <string>
 
@@ -17,8 +17,8 @@ namespace CFH
 
 		current_ = root_ = new ProfilerBlock(nullptr, "Frame");
 
-		SUBSCRIBE_TO_MESSAGE(BeginFrameMessage, this, [this](BeginFrameMessage message) { OnBeginFrame(); });
-		SUBSCRIBE_TO_MESSAGE(EndFrameMessage, this, [this](EndFrameMessage message) { OnEndFrame(); });
+		SUBSCRIBE_TO_MESSAGE(FrameBeginMessage, this, [this](FrameBeginMessage message) { OnBeginFrame(); });
+		SUBSCRIBE_TO_MESSAGE(FrameEndMessage, this, [this](FrameEndMessage message) { OnEndFrame(); });
 	}
 	Profiler::~Profiler()
 	{

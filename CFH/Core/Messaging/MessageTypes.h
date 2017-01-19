@@ -1,4 +1,6 @@
 #pragma once
+#include "..\..\CFH.h"
+
 #include <functional>
 #include <stdint.h>
 
@@ -12,19 +14,19 @@ namespace CFH
 	template<typename MESSAGETYPE> using MessageSubscribeFunction =
 		std::function<void(MESSAGETYPE)>;
 
-	struct Message
+	struct CFH_API Message
 	{
-		static int TypeIdCounter;
-
 		template<typename T>
 		static MessageTypeId GetTypeId()
 		{
 			// Trick for generating unique ids for the different types T that calls the method.
-			static int placeHolder = Message::TypeIdCounter++;
+			static int placeHolder = Message::GetNextTypeId();
 			return placeHolder;
 		}
-	};
 
-	class BeginFrameMessage	{};
-	class EndFrameMessage {};
+		static int GetNextTypeId();
+
+	private:
+		static int typeIdCounter_;
+	};
 }

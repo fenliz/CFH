@@ -3,6 +3,8 @@
 #include "Threading\SharedMutex.h"
 
 #include <atomic>
+#include <vector>
+#include <functional>
 
 namespace CFH
 {
@@ -10,20 +12,32 @@ namespace CFH
 	class GameTime;
 	class EngineContext;
 
+	typedef std::function<void()> RenderFunction;
+	typedef std::function<void(GameTime*)> UpdateFunction;
+
 	// Central application object, the entry point to starting
 	// an instance of the engine.
-	class CFH_API Application
+	class Application
 	{
 	public:
-		Application();
-		~Application();
+		CFH_EXPORT Application();
+		CFH_EXPORT ~Application();
 
-		void Start();
-		void Stop();
+		void CFH_EXPORT Initialize(int width, int height, LPWSTR title);
 
-		bool IsRunning() const;
+		void CFH_EXPORT Start();
+		void CFH_EXPORT Stop();
+
+		bool CFH_EXPORT IsRunning() const;
+
+		void CFH_EXPORT UpdateSubscribe(UpdateFunction function);
+		void CFH_EXPORT RenderSubscribe(RenderFunction function);
 
 	private:
+		std::vector<UpdateFunction> updateSubscribers_;
+		std::vector<RenderFunction> renderSubscribers_;
+		SharedMutex mutex_;
+
 		std::atomic<bool> isRunning_;
 		Window* window_;
 		GameTime* gameTime_;

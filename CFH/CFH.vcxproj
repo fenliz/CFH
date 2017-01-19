@@ -158,8 +158,10 @@
     <ClCompile Include="Core\Profiling\ProfilerBlock.cpp" />
     <ClInclude Include="Core\Application.h" />
     <ClInclude Include="CFH.h" />
+    <ClInclude Include="Core\Exceptions.h" />
     <ClInclude Include="Core\Logging\Log.h" />
     <ClInclude Include="Core\Logging\LogOutput.h" />
+    <ClInclude Include="Core\Messaging\Messages.h" />
     <ClInclude Include="Core\Messaging\MessageTypes.h" />
     <ClInclude Include="Core\Threading\Semaphore.h" />
     <ClInclude Include="Core\Threading\SharedMutex.h" />

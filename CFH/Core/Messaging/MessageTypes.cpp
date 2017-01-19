@@ -2,5 +2,10 @@
 
 namespace CFH
 {
-	int Message::TypeIdCounter = 0;
+	int Message::typeIdCounter_ = 0;
+
+	int Message::GetNextTypeId()
+	{
+		return typeIdCounter_++;
+	}
 }

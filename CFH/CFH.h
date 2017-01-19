@@ -1,5 +1,7 @@
 #pragma once
 
+#define CFH_EXPORT __declspec(dllexport)
+
 #ifdef CFH_EXPORTS
 #define CFH_API __declspec(dllexport)
 #else

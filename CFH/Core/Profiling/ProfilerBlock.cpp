@@ -89,6 +89,7 @@ namespace CFH
 			if (child->GetName() == name)
 				return child;
 		}
+		return nullptr;
 	}
 
 	ProfilerBlock* ProfilerBlock::GetParent() const
