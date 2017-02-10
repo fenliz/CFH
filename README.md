@@ -1,2 +1,1 @@
-# CFH
-A C++ Game Engine with focus on readability
+Prototype of having an abstract platform layer for a game.
